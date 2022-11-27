@@ -1,18 +1,20 @@
-import { StyleSheet, Text, View } from "react-native"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { NavigationContainer } from "@react-navigation/native"
+import { RecoilRoot } from "recoil"
+import HomeScreen from "./src/pages/HomeScreen"
+import DetailsScreen from "./src/pages/DetailsScreen"
+
+const Tab = createBottomTabNavigator()
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-        </View>
+        <RecoilRoot>
+            <NavigationContainer>
+                <Tab.Navigator>
+                    <Tab.Screen name="Home" component={HomeScreen} />
+                    <Tab.Screen name="Details" component={DetailsScreen} />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </RecoilRoot>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-})
